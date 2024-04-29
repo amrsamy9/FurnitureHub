@@ -1,6 +1,6 @@
 ﻿namespace FurnitureHub.Repository
 {
-    public class IOrderRepository
+    public interface IOrderRepository
     {
     }
 }
