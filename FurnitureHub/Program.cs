@@ -1,4 +1,5 @@
 using FurnitureHub.Models;
+using FurnitureHub.Repository;
 using Microsoft.EntityFrameworkCore;
 
 namespace FurnitureHub
@@ -13,7 +14,7 @@ namespace FurnitureHub
                (Options => Options.UseSqlServer("DefaultConnection"));
             #endregion
 
-
+            builder.Services.AddScoped<IGenericRepositort<Order>, OrderRepository>();
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
