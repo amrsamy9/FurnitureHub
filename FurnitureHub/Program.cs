@@ -1,3 +1,6 @@
+using FurnitureHub.Models;
+using Microsoft.EntityFrameworkCore;
+
 namespace FurnitureHub
 {
     public class Program
@@ -5,6 +8,11 @@ namespace FurnitureHub
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            #region  add connectionstring
+            builder.Services.AddDbContext<StoreContext>
+               (Options => Options.UseSqlServer("DefaultConnection"));
+            #endregion
+
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();

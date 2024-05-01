@@ -1,6 +1,8 @@
-﻿namespace FurnitureHub.Repository
+﻿using FurnitureHub.Models;
+
+namespace FurnitureHub.Repository
 {
-    public interface IOrderRepository
+    public interface IOrderRepository :IGenericRepositort<Order>
     {
 
     }
