@@ -9,8 +9,8 @@
         public string Address { get; set; }
         public string Phone { get; set; }
 
-        public List<Order> Orders { get; set; }
+        public ICollection<Order> Orders { get; set; }
 
-        public List<Review> Reviews { get; set; }
+        public ICollection<Review> Reviews { get; set; }
     }
 }

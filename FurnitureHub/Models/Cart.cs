@@ -7,7 +7,7 @@
 
         public int CustomerID { get; set; }
 
-        public List<CartItem> CartItem { get; set;}
+        public ICollection<CartItem> CartItem { get; set;}
 
         public Customer Customer { get; set; }
     }

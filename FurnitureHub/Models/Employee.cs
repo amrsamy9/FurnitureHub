@@ -10,6 +10,6 @@
         public string Email { get; set; }
         public string Phone { get; set; }
 
-        public List<Order> orders { get; set; }
+        public ICollection<Order> orders { get; set; }
     }
 }

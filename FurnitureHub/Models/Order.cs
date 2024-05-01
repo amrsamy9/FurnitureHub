@@ -12,9 +12,9 @@ namespace FurnitureHub.Models
 
         [ForeignKey("Customer")]
         public int CustomerID { get; set; }
-        public List<OrderItem> OrderItems { get; set; }
+        public ICollection<OrderItem> OrderItems { get; set; }
         public Customer Customer { get; set; }
-        public List<Payment> payment { get; set; }
+        public ICollection<Payment> payment { get; set; }
         public Employee Employee { get; set; }
 
     }
