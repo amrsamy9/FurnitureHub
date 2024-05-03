@@ -56,15 +56,15 @@ header {
   display: none;
 }
 .home {
-  width: 100%;
-  min-height: 100vh;
-  background-image: url(img/background.jpg);
-  background-repeat: no-repeat;
-  background-size: covere;
-  background-position: right;
-  background-attachment: fixed;
-  display: flex;
-  align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(/img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: covere;
+    background-position: right;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
 }
 .home-text h1 {
   font-size: 2.7rem;
@@ -200,7 +200,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url(img/bg.jpg);
+  background-image: url(/img/bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
