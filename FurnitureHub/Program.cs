@@ -1,5 +1,5 @@
 using FurnitureHub.Models;
-
+using FurnitureHub.Repository;
 using Microsoft.EntityFrameworkCore;
 
 namespace FurnitureHub
@@ -11,10 +11,11 @@ namespace FurnitureHub
             var builder = WebApplication.CreateBuilder(args);
             #region  add connectionstring
             builder.Services.AddDbContext<StoreContext>
-               (Options => Options.UseSqlServer("DefaultConnection"));
+                 (Options => Options.UseSqlServer("Server=ADMINISTRATOR\\SQLEXPRESS; Database=FurnitureHub; Trusted_Connection=True; Encrypt=false;"));
             #endregion
+            builder.Services.AddScoped<IProductCategoryRepository, ProductCategoryRepository>();
 
-            
+
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
