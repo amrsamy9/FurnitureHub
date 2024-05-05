@@ -14,7 +14,7 @@ namespace FurnitureHub.Controllers
 
         public IActionResult Index()
         {
-            List<ProductCategory> products = ProductCategoryRepository.GetAll();    
+            List<ProductCategory> productss = ProductCategoryRepository.GetAll();    
 
             return View("Index");
         }
