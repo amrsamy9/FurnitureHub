@@ -64,5 +64,35 @@ namespace FurnitureHub.Controllers
             return View("Index", CategoryList);
         }
 
+        public IActionResult Delete(int id)
+        {
+            var category = ProductCategoryRepository.GetById(id);
+            if (category == null)
+            {
+                return NotFound();
+            }
+
+            ProductCategoryRepository.Delete(id);
+            ProductCategoryRepository.Save();
+            
+            // Redirect to the index action without the deleted instructor
+            return View(category);
+        }
+        [HttpPost]
+        [ActionName("Delete")]
+        public IActionResult ConfirmDelete(int id)
+        {
+            var category = ProductCategoryRepository.GetById(id);
+            if (category == null)
+            {
+                return NotFound(); // Or handle the case where the instructor is not found
+            }
+
+            ProductCategoryRepository.Delete(id);
+            ProductCategoryRepository.Save();
+
+            return RedirectToAction("Index");
+        }
+
     }
 }

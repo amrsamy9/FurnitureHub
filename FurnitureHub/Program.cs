@@ -11,7 +11,7 @@ namespace FurnitureHub
             var builder = WebApplication.CreateBuilder(args);
             #region  add connectionstring
             builder.Services.AddDbContext<StoreContext>(options =>
-               options.UseSqlServer(builder.Configuration.GetConnectionString("Defaultconnection")));
+               options.UseSqlServer(builder.Configuration.GetConnectionString("CS")));
             #endregion
            builder.Services.AddScoped<IProductCategoryRepository, ProductCategoryRepository>();
             builder.Services.AddScoped<IProductRepository, ProductRepository>();
