@@ -10,10 +10,10 @@ namespace FurnitureHub
         {
             var builder = WebApplication.CreateBuilder(args);
             #region  add connectionstring
-            builder.Services.AddDbContext<StoreContext>
-                 (Options => Options.UseSqlServer("Server=ADMINISTRATOR\\SQLEXPRESS; Database=FurnitureHub; Trusted_Connection=True; Encrypt=false;"));
+            builder.Services.AddDbContext<StoreContext>(options =>
+               options.UseSqlServer(builder.Configuration.GetConnectionString("Defaultconnection")));
             #endregion
-            builder.Services.AddScoped<IProductCategoryRepository, ProductCategoryRepository>();
+           builder.Services.AddScoped<IProductCategoryRepository, ProductCategoryRepository>();
             builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 
