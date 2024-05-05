@@ -14,6 +14,7 @@ namespace FurnitureHub
                  (Options => Options.UseSqlServer("Server=ADMINISTRATOR\\SQLEXPRESS; Database=FurnitureHub; Trusted_Connection=True; Encrypt=false;"));
             #endregion
             builder.Services.AddScoped<IProductCategoryRepository, ProductCategoryRepository>();
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 
             // Add services to the container.

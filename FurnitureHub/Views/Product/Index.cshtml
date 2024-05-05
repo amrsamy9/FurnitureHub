@@ -1,0 +1,40 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<a href="/Product/New" class="btn btn-success"> + New</a>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Name</td>
+
+            <td><a href="\Product\Details?id=@item.ID">Details</a></td>
+            <td>
+                <a href="/Product/Edit" class="btn btn-success"> + Edit</a>
+            </td>
+            <td>
+                <form method="post" action="/Product/Delete/@item.ID" onsubmit="return confirmDelete()">
+                    <button type="submit" class="btn btn-danger delete-btn">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+
+@section scripts {
+    <script>
+        function confirmDelete() {
+            return confirm("Are you sure you want to delete this Product?");
+        }
+
+    </script>
+}
