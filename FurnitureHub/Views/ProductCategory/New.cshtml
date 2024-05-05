@@ -1,0 +1,24 @@
+﻿@model ProductCategory
+@{
+    ViewData["Title"] = "New";
+    Layout = "_Layout";
+}
+
+<h1>New</h1>
+<form method="post" action="/ProductCategory/SaveNew">
+
+
+    <div class="mb-3">
+        <label for="Name">Category Name </label>
+        <input type="text" class="form form-control" id="Name" name="Name" value="@Model?.Name">
+    </div>
+
+    <div class="mb-3">
+        <label for="Image">Category Image </label>
+        <input type="text" class="form form-control" id="Image" name="Image" value="@Model?.Image">
+    </div>
+
+    
+
+    <input type="submit" value="Create" class="btn btn-primary" />
+</form>

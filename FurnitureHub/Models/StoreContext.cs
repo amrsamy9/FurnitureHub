@@ -28,6 +28,19 @@ namespace FurnitureHub.Models
                 
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            List<ProductCategory> categories = new List<ProductCategory>()
+            {
+                new ProductCategory(){Id=1, Name="Chairs" ,Image="about.jpg"},
+            new ProductCategory() { Id = 2, Name = "Sofas", Image = "bed2.jpeg" },
+            new ProductCategory() { Id = 3, Name = "Tables", Image = "bed3.jpg" }
+            };
+
+            modelBuilder.Entity<ProductCategory>().HasData(categories);
+        }
+
 
 
 

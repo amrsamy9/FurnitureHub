@@ -1,0 +1,23 @@
+﻿@model ProductCategory
+@{
+    ViewData["Title"] = "Details";
+    Layout = "_Layout";
+}
+
+<h1>Details</h1>
+
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="/img/@Model.Image" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">Name :@Model.Name</h5>
+                <p class="card-text">Id :@Model.Id </p>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<a asp-controller="ProductCategory" asp-action="Index" class="btn btn-danger">Back</a>
