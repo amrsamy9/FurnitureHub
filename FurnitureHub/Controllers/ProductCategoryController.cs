@@ -93,6 +93,38 @@ namespace FurnitureHub.Controllers
 
             return RedirectToAction("Index");
         }
+        public IActionResult Edit(int id)
+        {
+            ProductCategory category = ProductCategoryRepository.GetById(id);
+            
+
+            return View("Edit",category );
+        }
+
+        [HttpPost]
+        public IActionResult SaveEdit(ProductCategory category)
+        {
+            ProductCategory existingCategory = ProductCategoryRepository.GetById(category.Id);
+
+            if (existingCategory == null)
+            {
+                return NotFound(); 
+            }
+
+           
+            existingCategory.Name = category.Name;
+            existingCategory.Image = category.Image;
+
+           
+            ProductCategoryRepository.Save();
+
+            return RedirectToAction("Index");
+
+            
+            return View("Edit", category);
+        }
+
+
 
     }
 }
