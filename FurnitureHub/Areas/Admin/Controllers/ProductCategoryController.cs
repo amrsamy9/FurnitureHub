@@ -5,6 +5,9 @@ using NuGet.Protocol.Core.Types;
 
 namespace FurnitureHub.Areas.Admin.Controllers
 {
+    /// <summary>
+    /// /mora
+    /// </summary>
     [Area("Admin")]
     public class ProductCategoryController : Controller
     {
