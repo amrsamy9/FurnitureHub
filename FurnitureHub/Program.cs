@@ -13,7 +13,7 @@ namespace FurnitureHub
             var builder = WebApplication.CreateBuilder(args);
             #region  add connectionstring
             builder.Services.AddDbContext<StoreContext>(options =>
-               options.UseSqlServer(builder.Configuration.GetConnectionString("AP")));
+               options.UseSqlServer(builder.Configuration.GetConnectionString("CS")));
             #endregion
            builder.Services.AddScoped<IProductCategoryRepository, ProductCategoryRepository>();
             builder.Services.AddScoped<IProductRepository, ProductRepository>();
@@ -40,8 +40,8 @@ namespace FurnitureHub
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
             app.MapControllerRoute(
-                name: "default",
-                 pattern: "{area:Admin}/{controller=Home}/{action=Index}/{id?}");
+              name: "default",
+                     pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
         }
