@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "Details";
+    Layout = "_Layout";
+}
+
+<h1>Details</h1>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Product Name</th>
+        <th>Image</th>
+        <th>Product Description</th>
+        <th>Product Price</th>
+        <th>Category ID</th>
+
+    </tr>
+    <tr>
+
+        <td>@Model.ID</td>
+        <td>@Model.Name</td>
+        <td>
+            <img src="/img/@Model.ImageURL" class="img-fluid rounded-start"
+         </td>
+       
+        <td>@Model.Description</td>
+        <td>@Model.Price</td>
+        <td>@Model.CategoryID</td>
+
+        <td>
+            <a href="/Product/Index" class="btn btn-success">Back To List</a>
+        </td>
+     
+    </tr>
+</table>

@@ -1,0 +1,52 @@
+﻿@model ProductViewModel
+@{
+    ViewData["Title"] = "New";
+    Layout = "_Layout";
+    SelectList categList = new SelectList(ViewBag.categoryList, "Id", "Name");
+}
+
+<h1>New</h1>
+
+<form asp-action="SaveNew" asp-controller="Product" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="ImageURL"></label>
+        <input asp-for="ImageURL" class="form form-control" />
+        <span asp-validation-for="ImageURL" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="CategoryID"></label>
+
+        <select asp-for="CategoryID" asp-items="categList" class="form form-control">
+            <option value="0"> Select a Category</option>
+        </select>
+    </div>
+    <span asp-validation-for="CategoryID" class="text-danger"></span>
+    <br />
+    <input type="submit" value="Create" class="btn btn-success" />
+</form>
+<br />
+<form asp-action="Index" asp-controller="Product" method="get">
+    <button type="submit" class="btn btn-primary">Back To List</button>
+</form>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
