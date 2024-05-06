@@ -8,6 +8,8 @@ namespace FurnitureHub
     {
         public static void Main(string[] args)
         {
+           
+
             var builder = WebApplication.CreateBuilder(args);
             #region  add connectionstring
             builder.Services.AddDbContext<StoreContext>(options =>
@@ -18,6 +20,7 @@ namespace FurnitureHub
 
 
             // Add services to the container.
+            
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
@@ -36,6 +39,9 @@ namespace FurnitureHub
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+            app.MapControllerRoute(
+                name: "default",
+                 pattern: "{area:Admin}/{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
         }

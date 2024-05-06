@@ -3,25 +3,26 @@ using FurnitureHub.Repository;
 using Microsoft.AspNetCore.Mvc;
 using NuGet.Protocol.Core.Types;
 
-namespace FurnitureHub.Controllers
+namespace FurnitureHub.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class ProductCategoryController : Controller
     {
         IProductCategoryRepository ProductCategoryRepository;
-        public ProductCategoryController(IProductCategoryRepository productCategoryRepository) 
+        public ProductCategoryController(IProductCategoryRepository productCategoryRepository)
         {
             ProductCategoryRepository = productCategoryRepository;
         }
 
         public IActionResult Index()
         {
-            List<ProductCategory> categoryList = ProductCategoryRepository.GetAll();    
+            List<ProductCategory> categoryList = ProductCategoryRepository.GetAll();
 
             return View("Index", categoryList);
         }
         public IActionResult Details(int id)    //get the instructor by id 
         {
-          ProductCategory category = ProductCategoryRepository.GetById(id);
+            ProductCategory category = ProductCategoryRepository.GetById(id);
             return View("Details", category);
         }
 
@@ -29,7 +30,7 @@ namespace FurnitureHub.Controllers
         public IActionResult New()   //methof for view the form to add new instructor 
         {
 
-           
+
 
             return View("New");
         }
@@ -74,8 +75,8 @@ namespace FurnitureHub.Controllers
 
             ProductCategoryRepository.Delete(id);
             ProductCategoryRepository.Save();
-            
-            
+
+
             return View(category);
         }
         [HttpPost]
@@ -85,7 +86,7 @@ namespace FurnitureHub.Controllers
             var category = ProductCategoryRepository.GetById(id);
             if (category == null)
             {
-                return NotFound(); 
+                return NotFound();
             }
 
             ProductCategoryRepository.Delete(id);
@@ -96,9 +97,9 @@ namespace FurnitureHub.Controllers
         public IActionResult Edit(int id)
         {
             ProductCategory category = ProductCategoryRepository.GetById(id);
-            
 
-            return View("Edit",category );
+
+            return View("Edit", category);
         }
 
         [HttpPost]
@@ -108,19 +109,19 @@ namespace FurnitureHub.Controllers
 
             if (existingCategory == null)
             {
-                return NotFound(); 
+                return NotFound();
             }
 
-           
+
             existingCategory.Name = category.Name;
             existingCategory.Image = category.Image;
 
-           
+
             ProductCategoryRepository.Save();
 
             return RedirectToAction("Index");
 
-            
+
             return View("Edit", category);
         }
 
