@@ -126,7 +126,7 @@ namespace FurnitureHub.Controllers
                 return RedirectToAction("Error");
             }
         }
-
+        //savedit
         [HttpPost]
         public IActionResult SaveEdit(ProductViewModel productFromReq)
         {
