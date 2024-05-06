@@ -75,7 +75,7 @@ namespace FurnitureHub.Controllers
             ProductCategoryRepository.Delete(id);
             ProductCategoryRepository.Save();
             
-            // Redirect to the index action without the deleted instructor
+            
             return View(category);
         }
         [HttpPost]
@@ -85,7 +85,7 @@ namespace FurnitureHub.Controllers
             var category = ProductCategoryRepository.GetById(id);
             if (category == null)
             {
-                return NotFound(); // Or handle the case where the instructor is not found
+                return NotFound(); 
             }
 
             ProductCategoryRepository.Delete(id);
