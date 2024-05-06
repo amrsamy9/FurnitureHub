@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FurnitureHub.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20240504214955_init2")]
-    partial class init2
+    [Migration("20240506203611_it")]
+    partial class it
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -295,6 +295,26 @@ namespace FurnitureHub.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("productCategories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Image = "about.jpg",
+                            Name = "Chairs"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Image = "bed2.jpeg",
+                            Name = "Sofas"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Image = "bed3.jpg",
+                            Name = "Tables"
+                        });
                 });
 
             modelBuilder.Entity("FurnitureHub.Models.Review", b =>

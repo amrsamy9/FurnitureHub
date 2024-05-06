@@ -297,19 +297,19 @@ namespace FurnitureHub.Migrations
                         new
                         {
                             Id = 1,
-                            Image = "",
+                            Image = "about.jpg",
                             Name = "Chairs"
                         },
                         new
                         {
                             Id = 2,
-                            Image = "",
+                            Image = "bed2.jpeg",
                             Name = "Sofas"
                         },
                         new
                         {
                             Id = 3,
-                            Image = "",
+                            Image = "bed3.jpg",
                             Name = "Tables"
                         });
                 });

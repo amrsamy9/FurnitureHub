@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace FurnitureHub.Migrations
 {
     /// <inheritdoc />
-    public partial class init1 : Migration
+    public partial class it : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -49,13 +51,14 @@ namespace FurnitureHub.Migrations
                 name: "productCategories",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_productCategories", x => x.ID);
+                    table.PrimaryKey("PK_productCategories", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -125,7 +128,7 @@ namespace FurnitureHub.Migrations
                         name: "FK_products_productCategories_CategoryID",
                         column: x => x.CategoryID,
                         principalTable: "productCategories",
-                        principalColumn: "ID",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -251,6 +254,16 @@ namespace FurnitureHub.Migrations
                         principalTable: "payments",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "productCategories",
+                columns: new[] { "Id", "Image", "Name" },
+                values: new object[,]
+                {
+                    { 1, "about.jpg", "Chairs" },
+                    { 2, "bed2.jpeg", "Sofas" },
+                    { 3, "bed3.jpg", "Tables" }
                 });
 
             migrationBuilder.CreateIndex(
